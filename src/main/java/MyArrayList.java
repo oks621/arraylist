@@ -2,11 +2,13 @@ package main.java;
 
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MyArrayList<T> {
     private T[] elements;
     private static final int DEFAULT_CAPACITY = 10;
     private int size = DEFAULT_CAPACITY;
+
 
     public MyArrayList() {
         this.elements = (T[]) new Object[DEFAULT_CAPACITY];
@@ -16,14 +18,16 @@ public class MyArrayList<T> {
         return elements.length;
     }
 
-    public T[] add(Object o) {
+    public T[] add(T o) {
         if (size == elements.length) {
             resize();
         }
         elements[size] = (T) o;
         size++;
+
         return elements;
     }
+
 
     private T resize() {
         T[] newelements = (T[]) new Object[elements.length * 2];

@@ -1,8 +1,9 @@
 package main.java;
 
 
-public class MyArrayLists {
-    public static void main(String[] args) {
+public class MyArrayLists<T> {
+
+        public static void main(String[] args) throws IllegalAccessException, InstantiationException {
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
         System.out.println(myArrayList);
         myArrayList.add(11);
@@ -12,7 +13,7 @@ public class MyArrayLists {
         myArrayList.add(18);
         myArrayList.add(17);
         myArrayList.add(1000);
-        myArrayList.add(1);
+        myArrayList.add(111111);
         System.out.println(myArrayList);
         System.out.println("get(index=15)= " + myArrayList.get(15));
         myArrayList.remove(12);
