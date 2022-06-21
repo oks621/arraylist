@@ -7,7 +7,7 @@ import java.util.Objects;
 public class MyArrayList<T> {
     private T[] elements;
     private static final int DEFAULT_CAPACITY = 10;
-    private int size = DEFAULT_CAPACITY;
+    private int size;
 
 
     public MyArrayList() {
@@ -15,7 +15,7 @@ public class MyArrayList<T> {
     }
 
     public int size() {
-        return elements.length;
+        return size;
     }
 
     public T[] add(T o) {
@@ -41,17 +41,17 @@ public class MyArrayList<T> {
     }
 
     public T get(int index) {
-        isIndexContains(index);
+        validateIndex(index);
         return elements[index];
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(elements) + " , size= " + elements.length;
+        return Arrays.toString(elements);
     }
 
     public T remove(int index) {
-        isIndexContains(index);
+        validateIndex(index);
         T[] newelements = elements;
         T value = newelements[index];
         System.arraycopy(newelements, 0, elements, 0, index);
@@ -60,13 +60,13 @@ public class MyArrayList<T> {
         return value;
     }
 
-    private int isIndexContains(int index) {
+    private void validateIndex(int index) {
         if (index >= elements.length || index < 0) {
             throw new IndexOutOfBoundsException("Element can't be found! "
                     + "Number of elements in array = " + size
                     + ". Total size of array = " + elements.length);
         }
-        return index;
+
 
     }
 
